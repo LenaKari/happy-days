@@ -1,17 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Link, Route } from 'react-router-dom';
+
+import Home from './containers/Home';
+import Login from './containers/Login';
+
+import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+import ActionHome from 'material-ui/svg-icons/action/home';
 
 class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<div className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
-					<h2>Welcome to React</h2>
-				</div>
-				<p className="App-intro">
-					To get started, edit <code>src/App.js</code> and save to reload.
-				</p>
+				<AppBar
+					title="Happy Days"
+					className="navbar"
+					iconElementLeft={
+						<IconButton>
+							<Link to='/'>
+								<ActionHome style={{color:'#fff'}} />
+							</Link>
+						</IconButton>
+					}
+				/>
+
+				<Route path='/' exact component={Home} />
+				<Route path='/login' component={Login} />
 			</div>
 		);
 	}
