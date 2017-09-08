@@ -1,0 +1,10 @@
+@import "variables";
+@import "mixins";
+
+.banner {
+	height: 400px;
+	background-image: url('../../images/banner.jpg');
+	@include background-size(cover);
+	background-position: top center;
+	@include box-shadow($gray);
+}

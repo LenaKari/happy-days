@@ -1,0 +1,12 @@
+.banner {
+  height: 400px;
+  background-image: url("../../images/banner.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: top center;
+  -webkit-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.5); }
