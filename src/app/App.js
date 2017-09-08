@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
 
-import Home from './containers/Home';
-import Login from './containers/Login';
+import Home from './components/Home';
+import Login from './components/Login';
 
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';

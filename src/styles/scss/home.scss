@@ -1,10 +1,18 @@
 @import "variables";
 @import "mixins";
 
-.banner {
-	height: 400px;
-	background-image: url('../../images/banner.jpg');
-	@include background-size(cover);
-	background-position: top center;
-	@include box-shadow($gray);
+.home-container {
+	.banner {
+		height: 400px;
+		background-image: url('../../images/banner.jpg');
+		@include background-size(cover);
+		background-position: top center;
+		@include box-shadow($darkgray);
+	}
+	h3 {
+		background-color: $turquoise;
+		padding: 0.5rem 0.75rem;
+		@include box-shadow($darkgray);
+		margin: 0;
+	}
 }

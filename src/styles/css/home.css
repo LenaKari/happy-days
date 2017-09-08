@@ -1,4 +1,4 @@
-.banner {
+.home-container .banner {
   height: 400px;
   background-image: url("../../images/banner.jpg");
   -webkit-background-size: cover;
@@ -7,6 +7,14 @@
   -o-background-size: cover;
   background-size: cover;
   background-position: top center;
-  -webkit-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.5); }
+  -webkit-box-shadow: 0px 1px 1px 0 #a1a1a1;
+  -moz-box-shadow: 0px 1px 1px 0 #a1a1a1;
+  box-shadow: 0px 1px 1px 0 #a1a1a1; }
+
+.home-container h3 {
+  background-color: #00bcd4;
+  padding: 0.5rem 0.75rem;
+  -webkit-box-shadow: 0px 1px 1px 0 #a1a1a1;
+  -moz-box-shadow: 0px 1px 1px 0 #a1a1a1;
+  box-shadow: 0px 1px 1px 0 #a1a1a1;
+  margin: 0; }
