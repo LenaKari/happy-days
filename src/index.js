@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
 import './styles/css/main.css';
-import App from './app/App';
+import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import reducer from './reducer';
+import reducer from './reducers';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 

@@ -6,15 +6,28 @@
   -ms-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-position: top center;
+  background-position: top right;
   -webkit-box-shadow: 0px 1px 1px 0 #a1a1a1;
   -moz-box-shadow: 0px 1px 1px 0 #a1a1a1;
   box-shadow: 0px 1px 1px 0 #a1a1a1; }
+  @media (max-width: 767px) {
+    .home-container .banner {
+      height: 300px; } }
 
-.home-container h3 {
-  background-color: #00bcd4;
-  padding: 0.5rem 0.75rem;
-  -webkit-box-shadow: 0px 1px 1px 0 #a1a1a1;
-  -moz-box-shadow: 0px 1px 1px 0 #a1a1a1;
-  box-shadow: 0px 1px 1px 0 #a1a1a1;
-  margin: 0; }
+.home-container .main-content {
+  width: 50%;
+  margin: auto; }
+  @media (max-width: 1600px) {
+    .home-container .main-content {
+      width: 60%; } }
+  @media (max-width: 1400px) {
+    .home-container .main-content {
+      width: 75%; } }
+  @media (max-width: 1200px) {
+    .home-container .main-content {
+      width: 90%; } }
+  @media (max-width: 767px) {
+    .home-container .main-content {
+      width: 100%; } }
+  .home-container .main-content .button-container {
+    text-align: center; }
