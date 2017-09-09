@@ -13,6 +13,9 @@
   @media (max-width: 767px) {
     .home-container .banner {
       height: 300px; } }
+  @media (max-width: 500px) {
+    .home-container .banner {
+      height: 200px; } }
 
 .home-container .main-content {
   width: 50%;
