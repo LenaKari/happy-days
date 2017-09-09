@@ -15,4 +15,10 @@
 	.button-container {
 		margin: 1rem auto;
 	}
+	a {
+		color: $blue;
+		&:hover {
+			color: $pink;
+		}
+	}
 }

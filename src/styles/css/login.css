@@ -25,3 +25,7 @@
       margin: 1rem auto; } }
   .login-container .button-container {
     margin: 1rem auto; }
+  .login-container a {
+    color: #4578c0; }
+    .login-container a:hover {
+      color: #ff4081; }
