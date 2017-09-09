@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 import '../styles/css/home.css';
@@ -66,7 +67,9 @@ const Home = () => (
 			</Card>
 
 			<div className='button-container'>
-				<RaisedButton label="Let's get started!" primary={true} />
+				<Link to="/login">
+					<RaisedButton label="Let's get started!" primary={true} />
+				</Link>
 			</div>
 		</div>
 
