@@ -15,6 +15,27 @@ const auth = (state = initialState, action) => {
 				isFetching: true,
 				isAuthenticated: false
 			}
+		case 'LOGIN_SUCCESS' :
+			return {
+				...state,
+				isFetching: false,
+				isAuthenticated: true,
+				isResolved: true,
+				user: action.user
+			}
+		case 'LOGIN_FAILED' :
+			return {
+				...state,
+				isFetching: false,
+				isAuthenticated: false,
+				isResolved: false,
+				error: action.message
+			}
+		case 'LOGOUT_SUCCESS' :
+			return {
+				...initialState,
+				isResolved: true
+			}
 		default :
 			return state;
 	}

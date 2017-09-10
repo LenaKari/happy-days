@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import './styles/css/main.css';
-import App from './App';
+import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { BrowserRouter as Router } from 'react-router-dom';

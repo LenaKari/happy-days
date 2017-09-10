@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 // Components
-import JoinForm from './forms/JoinForm';
-import LoginForm from './forms/LoginForm';
+import JoinForm from '../components/forms/JoinForm';
+import LoginForm from '../components/forms/LoginForm';
 
 // MaterialUI
 import {Tabs, Tab} from 'material-ui/Tabs';
@@ -33,10 +33,10 @@ class Login extends Component {
 					onChange={this.handleChange}
 				>
 					<Tab label="Login" value="a">
-						<LoginForm />
+						<LoginForm loginUser={this.props.actions.loginUser}/>
 					</Tab>
 					<Tab label="Sign up" value="b">
-						<JoinForm />
+						<JoinForm createAccount={this.props.actions.createAccount}/>
 					</Tab>
 				</Tabs>
 			</div>
