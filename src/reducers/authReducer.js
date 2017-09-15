@@ -36,6 +36,20 @@ const auth = (state = initialState, action) => {
 				...initialState,
 				isResolved: true
 			}
+		case 'PASSWORD_RESET_REQUEST' :
+			return {
+				...initialState,
+				isFetching: true
+			}
+		case 'PASSWORD_RESET_FAILED' :
+			return {
+				...initialState
+			}
+		case 'PASSWORD_RESET_SENT' :
+			return {
+				...initialState,
+				isResolved: true
+			}
 		default :
 			return state;
 	}

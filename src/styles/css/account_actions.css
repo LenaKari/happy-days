@@ -1,0 +1,33 @@
+.account-actions-container {
+  width: 40%;
+  margin: 2rem auto;
+  background-color: white;
+  -webkit-box-shadow: 0px 1px 1px 0 #a1a1a1;
+  -moz-box-shadow: 0px 1px 1px 0 #a1a1a1;
+  box-shadow: 0px 1px 1px 0 #a1a1a1; }
+  @media (max-width: 1400px) {
+    .account-actions-container {
+      width: 50%; } }
+  @media (max-width: 1200px) {
+    .account-actions-container {
+      width: 60%; } }
+  @media (max-width: 767px) {
+    .account-actions-container {
+      width: 75%; } }
+  @media (max-width: 600px) {
+    .account-actions-container {
+      width: 85%; } }
+  @media (max-width: 450px) {
+    .account-actions-container {
+      width: 96%; } }
+  @media (max-width: 500px) {
+    .account-actions-container {
+      margin: 1rem auto; } }
+  .account-actions-container .button-container {
+    margin: 1rem auto; }
+  .account-actions-container a {
+    color: #4578c0; }
+    .account-actions-container a:hover {
+      color: #ff4081; }
+  .account-actions-container .loading-container {
+    min-height: 150px; }

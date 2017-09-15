@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as authActions from '../actions/authActions';
 
 import Home from '../components/Home';
+import AccountActions from '../components/AccountActions';
 import Login from './Login';
 import Dashboard from './Dashboard';
 
@@ -39,6 +40,12 @@ const App = ({auth, actions}) => (
 		/>
 		<Route path='/dashboard' render={ () =>
 			<Dashboard
+				auth={auth}
+				actions={actions}
+			/>}
+		/>
+		<Route path='/account-actions' render={ () =>
+			<AccountActions
 				auth={auth}
 				actions={actions}
 			/>}

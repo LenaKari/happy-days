@@ -46,3 +46,16 @@ export const logoutUser = () => dispatch => {
 		dispatch({ type: 'ERROR', payload: error })
 	})
 }
+
+export const userResetPassword = email => {
+	return dispatch => {
+		dispatch({ type: 'PASSWORD_RESET_REQUEST' })
+		firebase.auth().sendPasswordResetEmail(email).then(() => {
+			dispatch({ type: 'PASSWORD_RESET_SENT' })
+		}, error => {
+			dispatch({ type: 'PASSWORD_RESET_FAILED', payload: error })
+		})
+	}
+}
+
+export const sendVerificationEmail = () => dispatch => {}

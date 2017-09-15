@@ -78,7 +78,7 @@ class LoginForm extends Component {
 						fullWidth={true}
 					/>
 				</div>
-				<Link to=''>
+				<Link to='/account-actions'>
 					<p>Forgot my password</p>
 				</Link>
 			</div>
