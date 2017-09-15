@@ -26,7 +26,7 @@ const App = ({auth, actions}) => (
 				</IconButton>
 			}
 			iconElementRight={
-				auth.isAuthenticated ? <FlatButton label="Logout" /> : <FlatButton label="Login/sign up" />
+				auth.isAuthenticated ? <FlatButton label="Logout" onClick={actions.logoutUser} /> : <FlatButton label="Login/sign up" />
 			}
 		/>
 

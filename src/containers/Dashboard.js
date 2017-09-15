@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 
 // Components
 
@@ -27,7 +28,11 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<div className="dashboard-container">
-				<p>Dashboard</p>
+				{this.props.auth.isAuthenticated ? (
+					<p>Dashboard</p>
+				) : (
+					<Redirect to='/login' />
+				)}
 			</div>
 		)
 	}
