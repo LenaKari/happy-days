@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import InputField from './InputField';
 
 // MaterialUI
-import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
 // Icons/Styling
@@ -39,29 +39,30 @@ class LoginForm extends Component {
 		this.props.loginUser(email, pass);
 	}
 
+	// Keyboard Enter can be used to submit form
+	handleKeyPress = (e) => {
+		if(e.key === "Enter") {
+			this.handleSignIn();
+		}
+	}
+
 	render() {
 		return (
 			<div className="login-form" style={styles.form}>
-				<div className="email-field">
-					<TextField
-						hintText="Email address"
-						floatingLabelText="Email address"
-						type="text"
-						fullWidth={true}
-						value={this.state.emailInput}
-						onChange={this.handleEmailInput}
-					/>
-				</div>
-				<div className="password-field">
-					<TextField
-						hintText="Password"
-						floatingLabelText="Password"
-						type="password"
-						fullWidth={true}
-						value={this.state.passwordInput}
-						onChange={this.handlePasswordInput}
-					/>
-				</div>
+				<InputField
+					hintText="Email address"
+					floatingLabelText="Email address"
+					value={this.state.emailInput}
+					onChange={this.handleEmailInput}
+				/>
+				<InputField
+					hintText="Password"
+					floatingLabelText="Password"
+					type="password"
+					value={this.state.passwordInput}
+					onChange={this.handlePasswordInput}
+					onKeyPress={this.handleKeyPress}
+				/>
 				<div className="button-container">
 					<RaisedButton
 						label="Login"

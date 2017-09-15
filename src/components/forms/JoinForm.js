@@ -47,6 +47,13 @@ class JoinForm extends Component {
 		}
 	}
 
+	// Keyboard Enter can be used to submit form
+	handleKeyPress = (e) => {
+		if(e.key === "Enter") {
+			this.handleRegisterAccount();
+		}
+	}
+
 	// TODO: Set up validation
 	formIsValid = () => {
 		return true;
@@ -85,6 +92,7 @@ class JoinForm extends Component {
 					type="password"
 					value={this.state.passwordConfirmInput}
 					onChange={this.handlePasswordConfirmInput}
+					onKeyPress={this.handleKeyPress}
 				/>
 
 				<div className="button-container">
