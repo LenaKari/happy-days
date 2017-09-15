@@ -6,6 +6,7 @@ import * as authActions from '../actions/authActions';
 
 import Home from '../components/Home';
 import Login from './Login';
+import Dashboard from './Dashboard';
 
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
@@ -32,6 +33,12 @@ const App = ({auth, actions}) => (
 		<Route path='/' exact component={Home} />
 		<Route path='/login' render={ () =>
 			<Login
+				auth={auth}
+				actions={actions}
+			/>}
+		/>
+		<Route path='/dashboard' render={ () =>
+			<Dashboard
 				auth={auth}
 				actions={actions}
 			/>}
