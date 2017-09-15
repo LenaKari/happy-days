@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import InputField from './InputField';
 
 // MaterialUI
-import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
 // Icons/Styling
@@ -55,46 +55,38 @@ class JoinForm extends Component {
 	render () {
 		return (
 			<div className="join-form" style={styles.form}>
-				<div className="name-field">
-					<TextField
-						hintText="What should we call you?"
-						floatingLabelText="Name"
-						type="text"
-						fullWidth={true}
-						value={this.state.nameInput}
-						onChange={this.handleNameInput}
-					/>
-				</div>
-				<div className="email-field">
-					<TextField
-						hintText="Email address"
-						floatingLabelText="Email address"
-						type="text"
-						fullWidth={true}
-						value={this.state.emailInput}
-						onChange={this.handleEmailInput}
-					/>
-				</div>
-				<div className="password-field">
-					<TextField
-						hintText="Password"
-						floatingLabelText="Password"
-						type="password"
-						fullWidth={true}
-						value={this.state.passwordInput}
-						onChange={this.handlePasswordInput}
-					/>
-				</div>
-				<div className="password-match-field">
-					<TextField
-						hintText="Re-enter password"
-						floatingLabelText="Re-enter password"
-						type="password"
-						fullWidth={true}
-						value={this.state.passwordConfirmInput}
-						onChange={this.handlePasswordConfirmInput}
-					/>
-				</div>
+
+				<InputField
+					hintText="What should we call you?"
+					floatingLabelText="Name"
+					value={this.state.nameInput}
+					onChange={this.handleNameInput}
+				/>
+
+
+				<InputField
+					hintText="Email address"
+					floatingLabelText="Email address"
+					value={this.state.emailInput}
+					onChange={this.handleEmailInput}
+				/>
+
+				<InputField
+					hintText="Password"
+					floatingLabelText="Password"
+					type="password"
+					value={this.state.passwordInput}
+					onChange={this.handlePasswordInput}
+				/>
+
+				<InputField
+					hintText="Re-enter password"
+					floatingLabelText="Re-enter password"
+					type="password"
+					value={this.state.passwordConfirmInput}
+					onChange={this.handlePasswordConfirmInput}
+				/>
+
 				<div className="button-container">
 					<RaisedButton
 						label="Join"
