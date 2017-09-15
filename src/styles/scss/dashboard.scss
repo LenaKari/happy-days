@@ -2,5 +2,17 @@
 @import "mixins";
 
 .dashboard-container {
-
+	.sidenav {
+		.menu-item {
+			display: flex;
+			align-items: center;
+			padding: 0.25rem 0.75rem;
+			svg {
+				margin-right: 1rem;
+			}
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 
 // Components
-
+import SideNav from '../components/dashboard/SideNav';
 
 // MaterialUI
 
@@ -27,12 +27,15 @@ class Dashboard extends Component {
 
 	render() {
 		return (
-			<div className="dashboard-container">
+			<div>
 				{this.props.auth.isAuthenticated ? (
-					<p>Dashboard</p>
-				) : (
-					<Redirect to='/login' />
-				)}
+					<div className="dashboard-container">
+						<SideNav />
+					</div>
+					) : (
+						<Redirect to='/login' />
+					)
+				}
 			</div>
 		)
 	}
