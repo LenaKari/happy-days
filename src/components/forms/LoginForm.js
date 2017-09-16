@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
+// Containers/components
 import InputField from './InputField';
 
 // MaterialUI
@@ -15,9 +17,7 @@ const styles = {
 		margin: 'auto',
 		paddingBottom: '1rem'
 	},
-	google: {
-		height: '60%'
-	},
+	google: { height: '60%' },
 };
 
 class LoginForm extends Component {

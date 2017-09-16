@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import RaisedButton from 'material-ui/RaisedButton';
+
+// MaterialUI
 import {Card, CardHeader, CardText} from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
+
+// Styling/icons
 import '../styles/css/home.css';
 
 const styles = {
-	card: {
-		margin: '1.5rem 1rem'
-	},
-	header: {
-		fontWeight: '600'
-	}
+	card: { margin: '1.5rem 1rem' },
+	header: { fontWeight: '600' }
 }
 
 const Home = () => (

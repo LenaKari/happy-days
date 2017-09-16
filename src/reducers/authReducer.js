@@ -38,7 +38,7 @@ const auth = (state = initialState, action) => {
 			}
 		case 'PASSWORD_RESET_REQUEST' :
 			return {
-				...initialState,
+				...state,
 				isFetching: true
 			}
 		case 'PASSWORD_RESET_FAILED' :
@@ -48,6 +48,22 @@ const auth = (state = initialState, action) => {
 		case 'PASSWORD_RESET_SENT' :
 			return {
 				...initialState,
+				isResolved: true
+			}
+		case 'EMAIL_VERIFICATION_REQUEST' :
+			return {
+				...state,
+				isFetching: true
+			}
+		case 'EMAIL_VERIFICATION_FAILED' :
+			return {
+				...state,
+				isFetching: false
+			}
+		case 'EMAIL_VERIFICATION_SENT' :
+			return {
+				...state,
+				isFetching: false,
 				isResolved: true
 			}
 		default :

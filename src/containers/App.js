@@ -1,20 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link, Route, withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux';
 import * as authActions from '../actions/authActions';
 
-import Home from '../components/Home';
-import AccountActions from '../components/AccountActions';
-import Login from './Login';
+// Containers/components
+import AccountActions from './AccountActions';
 import Dashboard from './Dashboard';
+import Home from '../components/Home';
+import Login from './Login';
 
-import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
-import FlatButton from 'material-ui/FlatButton';
+// MaterialUI
 import ActionHome from 'material-ui/svg-icons/action/home';
+import AppBar from 'material-ui/AppBar';
+import FlatButton from 'material-ui/FlatButton';
+import IconButton from 'material-ui/IconButton';
 
-const App = ({auth, actions}) => (
+const App = (props) => (
 	<div className="App">
 		<AppBar
 			title="Happy Days"
@@ -27,29 +29,14 @@ const App = ({auth, actions}) => (
 				</IconButton>
 			}
 			iconElementRight={
-				auth.isAuthenticated ? <FlatButton label="Logout" onClick={actions.logoutUser} /> : <FlatButton label="Login/sign up" />
+				props.auth.isAuthenticated ? <FlatButton label="Logout" onClick={props.actions.logoutUser} /> : <FlatButton label="Login/sign up" />
 			}
 		/>
 
 		<Route path='/' exact component={Home} />
-		<Route path='/login' render={ () =>
-			<Login
-				auth={auth}
-				actions={actions}
-			/>}
-		/>
-		<Route path='/dashboard' render={ () =>
-			<Dashboard
-				auth={auth}
-				actions={actions}
-			/>}
-		/>
-		<Route path='/account-actions' render={ () =>
-			<AccountActions
-				auth={auth}
-				actions={actions}
-			/>}
-		/>
+		<Route path='/login' component={Login} />
+		<Route path='/dashboard' component={Dashboard} />
+		<Route path='/account-actions' component={AccountActions} />
 	</div>
 );
 

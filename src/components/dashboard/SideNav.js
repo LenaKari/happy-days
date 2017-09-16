@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
 // Material UI
-import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
-import Divider from 'material-ui/Divider';
+import ArrowRight from 'material-ui/svg-icons/navigation/arrow-forward';
 import Calendar from 'material-ui/svg-icons/action/date-range';
+import Divider from 'material-ui/Divider';
+import Drawer from 'material-ui/Drawer';
+import IconButton from 'material-ui/IconButton';
 import Info from 'material-ui/svg-icons/action/info';
+import RaisedButton from 'material-ui/RaisedButton';
 import Settings from 'material-ui/svg-icons/action/settings';
 import SignOut from 'material-ui/svg-icons/content/reply';
-import ArrowRight from 'material-ui/svg-icons/navigation/arrow-forward';
-import IconButton from 'material-ui/IconButton';
 
 class SideNav extends Component {
 
@@ -25,7 +25,7 @@ class SideNav extends Component {
 		return (
 			<div className="sidenav">
 				<RaisedButton
-					label="Toggle Drawer"
+					label="Toggle side nav"
 					onClick={this.handleToggle}
 				/>
 				<Drawer width={200} openSecondary={true} open={this.state.open} >

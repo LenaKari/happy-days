@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { Redirect, withRouter } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
+import * as authActions from '../actions/authActions';
 
 // Components
 import SideNav from '../components/dashboard/SideNav';
@@ -42,4 +45,8 @@ class Dashboard extends Component {
 }
 
 
-export default Dashboard;
+const mapStateToProps = state => ({ auth: state.auth })
+
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(authActions, dispatch) })
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Dashboard));

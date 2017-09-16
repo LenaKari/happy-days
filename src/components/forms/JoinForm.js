@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+// Containers/components
 import InputField from './InputField';
 
 // MaterialUI
@@ -14,9 +16,7 @@ const styles = {
 		margin: 'auto',
 		paddingBottom: '1rem'
 	},
-	google: {
-		height: '60%'
-	},
+	google: { height: '60%' },
 };
 
 class JoinForm extends Component {
@@ -69,7 +69,6 @@ class JoinForm extends Component {
 					value={this.state.nameInput}
 					onChange={this.handleNameInput}
 				/>
-
 
 				<InputField
 					hintText="Email address"

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { Redirect, withRouter } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
+import * as authActions from '../actions/authActions';
 
-// Components
+// Containers/components
 import JoinForm from '../components/forms/JoinForm';
 import LoginForm from '../components/forms/LoginForm';
 
@@ -20,11 +23,7 @@ class Login extends Component {
 		};
 	}
 
-	handleChange = (value) => {
-		this.setState({
-			value: value,
-		});
-	};
+	handleChange = (value) => { this.setState({ value: value }); };
 
 	render() {
 		return (
@@ -32,10 +31,7 @@ class Login extends Component {
 				{this.props.auth.isAuthenticated ? (
 					<Redirect to='/dashboard' />
 				) : (
-					<Tabs
-						value={this.state.value}
-						onChange={this.handleChange}
-					>
+					<Tabs value={this.state.value} onChange={this.handleChange}>
 						<Tab label="Login" value="a">
 							<LoginForm loginUser={this.props.actions.loginUser}/>
 						</Tab>
@@ -49,5 +45,8 @@ class Login extends Component {
 	}
 }
 
+const mapStateToProps = state => ({ auth: state.auth })
 
-export default Login;
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(authActions, dispatch) })
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

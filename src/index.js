@@ -1,18 +1,24 @@
 import React from 'react';
 import { render } from 'react-dom';
-import './styles/css/main.css';
-import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducer from './reducers';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+// components/containers
+import App from './containers/App';
+
+// Styling
+import './styles/css/main.css';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 const middleWare = [ thunk ];
+const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {}
+
 
 if (process.env.NODE_ENV !== 'production') {
 	middleWare.push(createLogger());
@@ -20,9 +26,13 @@ if (process.env.NODE_ENV !== 'production') {
 
 const store = createStore(
 	reducer,
+	persistedState,
 	applyMiddleware(...middleWare)
 );
 
+store.subscribe(() => {
+	localStorage.setItem('reduxState', JSON.stringify(store.getState()))
+})
 
 render(
 	<MuiThemeProvider>

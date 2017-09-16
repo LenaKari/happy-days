@@ -13,6 +13,7 @@ export const createAccount = (name, email, pass) => dispatch => {
 	})
 	.then(() => {
 		dispatch(loginUser(email, pass))
+		dispatch(sendVerificationEmail())
 		dispatch({ type: 'REGISTRATION_SUCCESS' })
 	})
 	.catch(error => {
@@ -58,4 +59,11 @@ export const userResetPassword = email => {
 	}
 }
 
-export const sendVerificationEmail = () => dispatch => {}
+export const sendVerificationEmail = () => dispatch => {
+	dispatch({ type: 'EMAIL_VERIFICATION_REQUEST' })
+	firebase.auth().currentUser.sendEmailVerification().then(function() {
+		dispatch({ type: 'EMAIL_VERIFICATION_SENT' })
+	}, function(error) {
+		dispatch({ type: 'EMAIL_VERIFICATION_FAILED' })
+	});
+}
