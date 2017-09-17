@@ -6,6 +6,7 @@ import * as authActions from '../actions/authActions';
 
 // Components
 import SideNav from '../components/dashboard/SideNav';
+import Modal from '../components/Modal';
 
 // MaterialUI
 
@@ -29,11 +30,24 @@ class Dashboard extends Component {
 	};
 
 	render() {
+		const closeError = () => this.props.history.push('/account-actions');
+
 		return (
 			<div>
 				{this.props.auth.isAuthenticated ? (
 					<div className="dashboard-container">
 						<SideNav />
+						<div className='main-content'>
+							{!this.props.auth.user.emailVerified ? (
+								<Modal
+									title='Unverified email'
+									body='Please verify your email address by following the instructions in your registration email.'
+									closeError={closeError}
+								/>
+							) : (
+								<p>Verified User</p>
+							)}
+						</div>
 					</div>
 					) : (
 						<Redirect to='/login' />

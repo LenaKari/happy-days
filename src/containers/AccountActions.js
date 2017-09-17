@@ -19,7 +19,7 @@ class AccountActions extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: 'a',
+			value: 'password',
 		};
 	}
 
@@ -29,10 +29,10 @@ class AccountActions extends Component {
 		return (
 			<div className="account-actions-container">
 				<Tabs value={this.state.value} onChange={this.handleChange}>
-					<Tab label="Reset Password" value="a">
+					<Tab label="Reset Password" value="password">
 						<ResetPasswordForm actions={this.props.actions} auth={this.props.auth}/>
 					</Tab>
-					<Tab label="Resend verification email" value="b">
+					<Tab label="Resend verification email" value="verify">
 						<EmailVerification actions={this.props.actions} auth={this.props.auth} />
 					</Tab>
 				</Tabs>

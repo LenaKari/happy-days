@@ -22,7 +22,7 @@ class Modal extends Component {
 	render() {
 		const actions = [
 			<RaisedButton
-				label="Got it"
+				label="Close"
 				primary={true}
 				onClick={this.handleClose}
 			/>,
