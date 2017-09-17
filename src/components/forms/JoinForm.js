@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 // Containers/components
 import InputField from './InputField';
+import Modal from '../Modal';
 import * as validate from '../../utils/validation';
 
 // MaterialUI
@@ -97,7 +98,6 @@ class JoinForm extends Component {
 	render () {
 		return (
 			<div className="join-form" style={styles.form}>
-
 				<InputField
 					hintText="What should we call you?"
 					floatingLabelText="Name"
@@ -148,6 +148,13 @@ class JoinForm extends Component {
 						fullWidth={true}
 					/>
 				</div>
+				{this.props.error && this.props.error.length > 0 ? (
+						<Modal
+							title='Oops!'
+							body={this.props.error}
+							closeRegistrationError={this.props.closeRegistrationError}
+						/>
+				) : null }
 			</div>
 		)
 	}

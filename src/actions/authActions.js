@@ -17,9 +17,8 @@ export const createAccount = (name, email, pass) => dispatch => {
 		dispatch({ type: 'REGISTRATION_SUCCESS' })
 	})
 	.catch(error => {
-		console.log(error.code, error.message)
 		if (error.code === 'auth/email-already-in-use') {
-			alert('An account with this email address has already been registered')
+			dispatch({ type: 'REGISTRATION_FAILED', payload: 'An account already exists for this email address.' })
 		}
 	})
 }
@@ -66,4 +65,8 @@ export const sendVerificationEmail = () => dispatch => {
 	}, function(error) {
 		dispatch({ type: 'EMAIL_VERIFICATION_FAILED' })
 	});
+}
+
+export const closeRegistrationError = () => dispatch => {
+	dispatch({ type: 'ERROR_ACKNOWLEDGED' });
 }

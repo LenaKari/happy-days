@@ -36,7 +36,11 @@ class Login extends Component {
 							<LoginForm loginUser={this.props.actions.loginUser}/>
 						</Tab>
 						<Tab label="Sign up" value="b">
-							<JoinForm createAccount={this.props.actions.createAccount}/>
+							<JoinForm
+								createAccount={this.props.actions.createAccount}
+								error={this.props.register.error}
+								closeRegistrationError={this.props.actions.closeRegistrationError}
+							/>
 						</Tab>
 					</Tabs>
 				)}
@@ -45,7 +49,10 @@ class Login extends Component {
 	}
 }
 
-const mapStateToProps = state => ({ auth: state.auth })
+const mapStateToProps = state => ({
+	auth: state.auth,
+	register: state.register
+})
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(authActions, dispatch) })
 
