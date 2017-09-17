@@ -152,7 +152,7 @@ class JoinForm extends Component {
 						<Modal
 							title='Oops!'
 							body={this.props.error}
-							closeRegistrationError={this.props.closeRegistrationError}
+							closeError={this.props.closeError}
 						/>
 				) : null }
 			</div>

@@ -33,13 +33,17 @@ class Login extends Component {
 				) : (
 					<Tabs value={this.state.value} onChange={this.handleChange}>
 						<Tab label="Login" value="a">
-							<LoginForm loginUser={this.props.actions.loginUser}/>
+							<LoginForm
+								loginUser={this.props.actions.loginUser}
+								error={this.props.auth.error}
+								closeError={this.props.actions.closeLoginError}
+							/>
 						</Tab>
 						<Tab label="Sign up" value="b">
 							<JoinForm
 								createAccount={this.props.actions.createAccount}
 								error={this.props.register.error}
-								closeRegistrationError={this.props.actions.closeRegistrationError}
+								closeError={this.props.actions.closeRegistrationError}
 							/>
 						</Tab>
 					</Tabs>

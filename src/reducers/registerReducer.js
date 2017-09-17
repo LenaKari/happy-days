@@ -20,7 +20,7 @@ const register = (state = initialState, action) => {
 				pending: false,
 				error: action.payload
 			}
-		case 'ERROR_ACKNOWLEDGED' :
+		case 'REGISTER_ERROR_ACKNOWLEDGED' :
 			return {
 				...initialState
 			}

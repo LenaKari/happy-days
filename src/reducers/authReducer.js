@@ -29,7 +29,11 @@ const auth = (state = initialState, action) => {
 				isFetching: false,
 				isAuthenticated: false,
 				isResolved: false,
-				error: action.message
+				error: action.payload
+			}
+		case 'LOGIN_ERROR_ACKNOWLEDGED' :
+			return {
+				...initialState
 			}
 		case 'LOGOUT_SUCCESS' :
 			return {

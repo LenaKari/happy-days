@@ -15,8 +15,8 @@ class Modal extends Component {
 	};
 
 	handleClose = () => {
+		this.props.closeError();
 		this.setState({open: false});
-		this.props.closeRegistrationError();
 	};
 
 	render() {

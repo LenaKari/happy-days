@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 // Containers/components
 import InputField from './InputField';
+import Modal from '../Modal';
 
 // MaterialUI
 import RaisedButton from 'material-ui/RaisedButton';
@@ -81,6 +82,13 @@ class LoginForm extends Component {
 				<Link to='/account-actions'>
 					<p>Forgot my password</p>
 				</Link>
+				{this.props.error && this.props.error.length > 0 ? (
+						<Modal
+							title='Oops!'
+							body={this.props.error}
+							closeError={this.props.closeError}
+						/>
+				) : null }
 			</div>
 		)
 	}

@@ -33,7 +33,11 @@ export const loginUser = (email, pass) => dispatch => {
 		})
 	})
 	.catch(error => {
-		dispatch({ type: 'ERROR', payload: error })
+		if (error.code === 'auth/wrong-password') {
+			dispatch({ type: 'REGISTRATION_FAILED', payload: 'The email and password you entered do not match our records. Please try again.' })
+		} else if(error.code === 'auth/user-not-found') {
+			dispatch({ type: 'REGISTRATION_FAILED', payload: 'There is no account registered with the email address you entered. Please try again, or register a new account.' })
+		}
 	})
 }
 
@@ -68,5 +72,9 @@ export const sendVerificationEmail = () => dispatch => {
 }
 
 export const closeRegistrationError = () => dispatch => {
-	dispatch({ type: 'ERROR_ACKNOWLEDGED' });
+	dispatch({ type: 'REGISTER_ERROR_ACKNOWLEDGED' });
+}
+
+export const closeLoginError = () => dispatch => {
+	dispatch({ type: 'LOGIN_ERROR_ACKNOWLEDGED' });
 }
