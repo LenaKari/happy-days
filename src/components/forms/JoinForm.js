@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 // Containers/components
 import InputField from './InputField';
+import * as validate from '../../utils/validation';
 
 // MaterialUI
 import RaisedButton from 'material-ui/RaisedButton';
@@ -27,13 +28,35 @@ class JoinForm extends Component {
 			emailInput: '',
 			passwordInput: '',
 			passwordConfirmInput: '',
+			nameError: '',
+			emailError: '',
+			passwordError: '',
+			passwordConfirmError: ''
 		};
 	}
 
-	handleNameInput = e => this.setState({ nameInput: e.target.value })
-	handleEmailInput = e => this.setState({ emailInput: e.target.value })
-	handlePasswordInput = e => this.setState({ passwordInput: e.target.value })
-	handlePasswordConfirmInput = e => this.setState({ passwordConfirmInput: e.target.value })
+	// While the user is inserting into field, remove errors
+	handleNameInput = e => {
+		this.handleNameError('');
+		this.setState({ nameInput: e.target.value });
+	}
+	handleEmailInput = e => {
+		this.handleEmailError('');
+		this.setState({ emailInput: e.target.value });
+	}
+	handlePasswordInput = e => {
+		this.handlePasswordError('');
+		this.setState({ passwordInput: e.target.value });
+	}
+	handlePasswordConfirmInput = e => {
+		this.handlePasswordConfirmError('');
+		this.setState({ passwordConfirmInput: e.target.value });
+	}
+
+	handleNameError = (error) => this.setState({ nameError: error })
+	handleEmailError = (error) => this.setState({ emailError: error })
+	handlePasswordError = (error) => this.setState({ passwordError: error })
+	handlePasswordConfirmError = (error) => this.setState({ passwordConfirmError: error })
 
 	handleRegisterAccount = () => {
 		if (this.formIsValid()) {
@@ -43,7 +66,7 @@ class JoinForm extends Component {
 
 			this.props.createAccount(name, email, pass);
 		} else {
-			console.log("Passwords don't match");
+			this.displayFormErrors();
 		}
 	}
 
@@ -54,10 +77,22 @@ class JoinForm extends Component {
 		}
 	}
 
-	// TODO: Set up validation
 	formIsValid = () => {
-		return true;
+		const isValidName = validate.isValidName(this.state.nameInput);
+		const isValidEmail = validate.isValidEmail(this.state.emailInput);
+		const isValidPassword = validate.isValidPassword(this.state.passwordInput);
+		const passwordsMatch = validate.passwordsMatch(this.state.passwordInput, this.state.passwordConfirmInput);
+
+		return isValidName && isValidEmail && isValidPassword && passwordsMatch ? true : false;
 	}
+
+	displayFormErrors = () => {
+		this.handleNameError(validate.isValidName(this.state.nameInput) ? '' : validate.requiredError());
+		this.handleEmailError(validate.isValidEmail(this.state.emailInput) ? '' : validate.emailError());
+		this.handlePasswordError(validate.isValidPassword(this.state.passwordInput) ? '' : validate.passwordError());
+		this.handlePasswordConfirmError(validate.passwordsMatch(this.state.passwordInput, this.state.passwordConfirmInput) ? '' : validate.passwordConfirmError());
+	}
+
 
 	render () {
 		return (
@@ -68,6 +103,7 @@ class JoinForm extends Component {
 					floatingLabelText="Name"
 					value={this.state.nameInput}
 					onChange={this.handleNameInput}
+					errorText={this.state.nameError}
 				/>
 
 				<InputField
@@ -75,6 +111,7 @@ class JoinForm extends Component {
 					floatingLabelText="Email address"
 					value={this.state.emailInput}
 					onChange={this.handleEmailInput}
+					errorText={this.state.emailError}
 				/>
 
 				<InputField
@@ -83,6 +120,7 @@ class JoinForm extends Component {
 					type="password"
 					value={this.state.passwordInput}
 					onChange={this.handlePasswordInput}
+					errorText={this.state.passwordError}
 				/>
 
 				<InputField
@@ -92,6 +130,7 @@ class JoinForm extends Component {
 					value={this.state.passwordConfirmInput}
 					onChange={this.handlePasswordConfirmInput}
 					onKeyPress={this.handleKeyPress}
+					errorText={this.state.passwordConfirmError}
 				/>
 
 				<div className="button-container">

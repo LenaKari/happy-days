@@ -12,7 +12,8 @@ const InputField = ({
 		fullWidth,
 		value,
 		onChange,
-		onKeyPress
+		onKeyPress,
+		errorText
 	}) => (
 		<div className='form-field'>
 			<TextField
@@ -23,6 +24,7 @@ const InputField = ({
 				value={value}
 				onChange={onChange}
 				onKeyPress={onKeyPress}
+				errorText={errorText}
 			/>
 		</div>
 
@@ -35,7 +37,8 @@ InputField.propTypes = {
 	fullWidth: PropTypes.bool,
 	value: PropTypes.string,
 	onChange: PropTypes.func,
-	onKeyPress: PropTypes.func
+	onKeyPress: PropTypes.func,
+	errorText: PropTypes.string
 };
 
 InputField.defaultProps = {
