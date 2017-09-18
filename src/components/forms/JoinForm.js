@@ -6,6 +6,7 @@ import Modal from '../Modal';
 import * as validate from '../../utils/validation';
 
 // MaterialUI
+import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
 // Icons/Styling
@@ -29,6 +30,7 @@ class JoinForm extends Component {
 			emailInput: '',
 			passwordInput: '',
 			passwordConfirmInput: '',
+			passwordInputHidden: true,
 			nameError: '',
 			emailError: '',
 			passwordError: '',
@@ -52,6 +54,10 @@ class JoinForm extends Component {
 	handlePasswordConfirmInput = e => {
 		this.handlePasswordConfirmError('');
 		this.setState({ passwordConfirmInput: e.target.value });
+	}
+
+	togglePasswordInput = () => {
+		this.setState({ passwordInputHidden: !this.state.passwordInputHidden });
 	}
 
 	handleNameError = (error) => this.setState({ nameError: error })
@@ -117,20 +123,25 @@ class JoinForm extends Component {
 				<InputField
 					hintText="Password"
 					floatingLabelText="Password"
-					type="password"
+					type={this.state.passwordInputHidden ? 'password' : 'text'}
 					value={this.state.passwordInput}
 					onChange={this.handlePasswordInput}
 					errorText={this.state.passwordError}
 				/>
-
 				<InputField
 					hintText="Re-enter password"
 					floatingLabelText="Re-enter password"
-					type="password"
+					type={this.state.passwordInputHidden ? 'password' : 'text'}
 					value={this.state.passwordConfirmInput}
 					onChange={this.handlePasswordConfirmInput}
 					onKeyPress={this.handleKeyPress}
 					errorText={this.state.passwordConfirmError}
+				/>
+
+				<FlatButton
+					label={this.state.passwordInputHidden ? 'Show password' : 'Hide password'}
+					secondary={true}
+					onClick={this.togglePasswordInput}
 				/>
 
 				<div className="button-container">

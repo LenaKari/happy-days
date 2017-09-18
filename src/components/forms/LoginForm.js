@@ -6,6 +6,7 @@ import InputField from './InputField';
 import Modal from '../Modal';
 
 // MaterialUI
+import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
 // Icons/Styling
@@ -26,12 +27,17 @@ class LoginForm extends Component {
 		super(props);
 		this.state = {
 			emailInput: '',
-			passwordInput: ''
+			passwordInput: '',
+			passwordInputHidden: true
 		};
 	}
 
 	handleEmailInput = e => this.setState({ emailInput: e.target.value })
 	handlePasswordInput = e => this.setState({ passwordInput: e.target.value })
+
+	togglePasswordInput = () => {
+		this.setState({ passwordInputHidden: !this.state.passwordInputHidden });
+	}
 
 	handleSignIn = () => {
 		let email = this.state.emailInput;
@@ -59,10 +65,15 @@ class LoginForm extends Component {
 				<InputField
 					hintText="Password"
 					floatingLabelText="Password"
-					type="password"
+					type={this.state.passwordInputHidden ? 'password' : 'text'}
 					value={this.state.passwordInput}
 					onChange={this.handlePasswordInput}
 					onKeyPress={this.handleKeyPress}
+				/>
+				<FlatButton
+					label={this.state.passwordInputHidden ? 'Show password' : 'Hide password'}
+					secondary={true}
+					onClick={this.togglePasswordInput}
 				/>
 				<div className="button-container">
 					<RaisedButton
