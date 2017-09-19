@@ -16,18 +16,6 @@ import '../styles/css/dashboard.css';
 
 
 class Dashboard extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			value: 'a',
-		};
-	}
-
-	handleChange = (value) => {
-		this.setState({
-			value: value,
-		});
-	};
 
 	render() {
 		const closeError = () => this.props.history.push('/account-actions');
@@ -45,7 +33,7 @@ class Dashboard extends Component {
 									closeError={closeError}
 								/>
 							) : (
-								<p>Verified User</p>
+								<p>Welcome {this.props.auth.user.displayName}!</p>
 							)}
 						</div>
 					</div>

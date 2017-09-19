@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 
 // Material UI
 import AppBar from 'material-ui/AppBar';
+import BurgerMenu from 'material-ui/svg-icons/navigation/menu';
 import ArrowRight from 'material-ui/svg-icons/navigation/arrow-forward';
 import Calendar from 'material-ui/svg-icons/action/date-range';
 import Divider from 'material-ui/Divider';
 import Drawer from 'material-ui/Drawer';
 import IconButton from 'material-ui/IconButton';
 import Info from 'material-ui/svg-icons/action/info';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import Settings from 'material-ui/svg-icons/action/settings';
 import SignOut from 'material-ui/svg-icons/content/reply';
 
@@ -24,13 +25,14 @@ class SideNav extends Component {
 	render() {
 		return (
 			<div className="sidenav">
-				<RaisedButton
-					label="Toggle side nav"
-					onClick={this.handleToggle}
-				/>
+				<div className='sidebar-toggle'>
+					<IconButton>
+						<BurgerMenu color='#ffffff' onClick={this.handleToggle} />
+					</IconButton>
+				</div>
+				
 				<Drawer width={200} openSecondary={true} open={this.state.open} >
 					<AppBar
-
 						iconElementLeft={
 							<IconButton>
 								<ArrowRight onClick={this.handleToggle} />

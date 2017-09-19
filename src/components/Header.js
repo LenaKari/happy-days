@@ -10,6 +10,16 @@ import IconButton from 'material-ui/IconButton';
 class Header extends Component {
 	navigateToLogin = () => this.props.history.push('/login');
 
+	navRightContent = () => {
+		if (this.props.history.location.pathname === '/dashboard') {
+			return null;
+		} else if (this.props.auth.isAuthenticated) {
+			return <FlatButton label="Logout" onClick={this.props.actions.logoutUser} />;
+		} else {
+			return <FlatButton label="Login/sign up" onClick={this.navigateToLogin} />;
+		}
+	}
+
 	render () {
 		return (
 			<AppBar
@@ -22,13 +32,7 @@ class Header extends Component {
 						</Link>
 					</IconButton>
 				}
-				iconElementRight={
-					this.props.auth.isAuthenticated ? (
-						<FlatButton label="Logout" onClick={this.props.actions.logoutUser} />
-					) : (
-						<FlatButton label="Login/sign up" onClick={this.navigateToLogin} />
-					)
-				}
+				iconElementRight={ this.navRightContent() }
 			/>
 
 		)
