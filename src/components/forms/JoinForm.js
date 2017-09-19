@@ -157,6 +157,7 @@ class JoinForm extends Component {
 						label="Sign up with Google"
 						icon={<img src={googleIcon} style={styles.google} alt=''/>}
 						fullWidth={true}
+						onClick={this.props.actions.createAccountWithProvider}
 					/>
 				</div>
 				{this.props.error && this.props.error.length > 0 ? (

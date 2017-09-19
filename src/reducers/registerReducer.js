@@ -18,7 +18,7 @@ const register = (state = initialState, action) => {
 			return {
 				...state,
 				pending: false,
-				error: action.payload
+				error: action.error
 			}
 		case 'REGISTER_ERROR_ACKNOWLEDGED' :
 			return {

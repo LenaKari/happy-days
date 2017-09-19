@@ -37,6 +37,7 @@ class Login extends Component {
 								loginUser={this.props.actions.loginUser}
 								error={this.props.auth.error}
 								closeError={this.props.actions.closeLoginError}
+								actions={this.props.actions}
 							/>
 						</Tab>
 						<Tab label="Sign up" value="b">
@@ -44,6 +45,7 @@ class Login extends Component {
 								createAccount={this.props.actions.createAccount}
 								error={this.props.register.error}
 								closeError={this.props.actions.closeRegistrationError}
+								actions={this.props.actions}
 							/>
 						</Tab>
 					</Tabs>

@@ -88,6 +88,7 @@ class LoginForm extends Component {
 						label="Sign in with Google"
 						icon={<img src={googleIcon} style={styles.google} alt=''/>}
 						fullWidth={true}
+						onClick={this.props.actions.signInWithProvider}
 					/>
 				</div>
 				<Link to='/account-actions'>

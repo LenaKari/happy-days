@@ -6,4 +6,8 @@ import config from './firebase_config';
 
 const App = firebase.initializeApp(config);
 
+export const googleProvider = new firebase.auth.GoogleAuthProvider()
+
+export const now = new Date().getTime()
+
 export default App;

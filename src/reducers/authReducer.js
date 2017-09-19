@@ -29,7 +29,7 @@ const auth = (state = initialState, action) => {
 				isFetching: false,
 				isAuthenticated: false,
 				isResolved: false,
-				error: action.payload
+				error: action.error
 			}
 		case 'LOGIN_ERROR_ACKNOWLEDGED' :
 			return {
@@ -47,7 +47,8 @@ const auth = (state = initialState, action) => {
 			}
 		case 'PASSWORD_RESET_FAILED' :
 			return {
-				...initialState
+				...initialState,
+				error: action.error
 			}
 		case 'PASSWORD_RESET_SENT' :
 			return {
@@ -69,6 +70,14 @@ const auth = (state = initialState, action) => {
 				...state,
 				isFetching: false,
 				isResolved: true
+			}
+		case 'USER_DETAILS_FETCHED' :
+			return {
+				...state,
+				isFetching: false,
+				isResolved: true,
+				isAuthenticated: true,
+				user: action.user
 			}
 		default :
 			return state;
