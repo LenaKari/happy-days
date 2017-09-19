@@ -28,6 +28,7 @@ export const loginUser = (email, pass) => dispatch => {
 	.then(response => {
 		let user = response
 		dispatch(updateLastLoggedIn(user.uid, user.email));
+		dispatch(fetchProfile(user));
 		dispatch({
 			type: 'LOGIN_SUCCESS',
 			user: user
@@ -61,6 +62,7 @@ export const createAccountWithProvider = () => dispatch => {
 	})
 	.then(() => {
 		dispatch(updateLastLoggedIn(user.uid, user.email));
+		dispatch(fetchProfile(user));
 		dispatch({ type: 'LOGIN_SUCCESS', user: user });
 	})
 	.catch(error => {
@@ -74,18 +76,19 @@ export const signInWithProvider = () => dispatch => {
 		let user = response.user;
 		dispatch({ type: 'LOGIN_SUCCESS', user: user });
 		dispatch(updateLastLoggedIn(user.uid, user.email));
+		dispatch(fetchProfile(user));
 	})
 	.catch(error => {
 		dispatch({ type: 'LOGIN_FAILED', error: error.message})
 	})
 }
 
-// const fetchUser = user => dispatch => {
-// 	firebase.database().ref('users').child(user).on('value', snap => {
-// 		let user = snap.val();
-// 		dispatch({ type: 'USER_DETAILS_FETCHED', user: user });
-// 	})
-// }
+const fetchProfile = user => dispatch => {
+	firebase.database().ref('users').child(user.uid).on('value', snap => {
+		let profile = snap.val();
+		dispatch({ type: 'USER_DETAILS_FETCHED', user: user, profile: profile });
+	})
+}
 
 export const updateLastLoggedIn = (user, email) => dispatch => {
 	firebase.database().ref().child('users').child(user).update({

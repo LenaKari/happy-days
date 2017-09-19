@@ -9,7 +9,6 @@ import Divider from 'material-ui/Divider';
 import Drawer from 'material-ui/Drawer';
 import IconButton from 'material-ui/IconButton';
 import Info from 'material-ui/svg-icons/action/info';
-import FlatButton from 'material-ui/FlatButton';
 import Settings from 'material-ui/svg-icons/action/settings';
 import SignOut from 'material-ui/svg-icons/content/reply';
 
@@ -30,7 +29,7 @@ class SideNav extends Component {
 						<BurgerMenu color='#ffffff' onClick={this.handleToggle} />
 					</IconButton>
 				</div>
-				
+
 				<Drawer width={200} openSecondary={true} open={this.state.open} >
 					<AppBar
 						iconElementLeft={
@@ -52,7 +51,7 @@ class SideNav extends Component {
 						<p>Tutorial</p>
 					</div>
 					<Divider />
-					<div className="menu-item" onClick={this.handleToggle}>
+					<div className="menu-item" onClick={this.props.actions.logoutUser}>
 						<SignOut />
 						<p>Sign out</p>
 					</div>

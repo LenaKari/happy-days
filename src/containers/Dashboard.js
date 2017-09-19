@@ -24,7 +24,7 @@ class Dashboard extends Component {
 			<div>
 				{this.props.auth.isAuthenticated ? (
 					<div className="dashboard-container">
-						<SideNav />
+						<SideNav actions={this.props.actions}/>
 						<div className='main-content'>
 							{!this.props.auth.user.emailVerified ? (
 								<Modal
@@ -33,7 +33,7 @@ class Dashboard extends Component {
 									closeError={closeError}
 								/>
 							) : (
-								<p>Welcome {this.props.auth.user.displayName}!</p>
+								null
 							)}
 						</div>
 					</div>

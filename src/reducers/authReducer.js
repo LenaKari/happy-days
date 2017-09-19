@@ -21,7 +21,8 @@ const auth = (state = initialState, action) => {
 				isFetching: false,
 				isAuthenticated: true,
 				isResolved: true,
-				user: action.user
+				user: action.user,
+				profile: action.profile
 			}
 		case 'LOGIN_FAILED' :
 			return {
@@ -77,7 +78,8 @@ const auth = (state = initialState, action) => {
 				isFetching: false,
 				isResolved: true,
 				isAuthenticated: true,
-				user: action.user
+				user: action.user,
+				profile: action.profile
 			}
 		default :
 			return state;
