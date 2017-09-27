@@ -21,7 +21,17 @@ class SideNav extends Component {
 
 	handleToggle = () => this.setState({open: !this.state.open});
 
+	changeView = (view) => {
+		this.handleToggle();
+		this.props.changeView(view);
+	}
+
+	viewEntries =() => this.changeView('entries');
+	viewSettings =() => this.changeView('settings');
+	viewTutorial =() => this.changeView('tutorial');
+
 	render() {
+
 		return (
 			<div className="sidenav">
 				<div className='sidebar-toggle'>
@@ -38,15 +48,15 @@ class SideNav extends Component {
 							</IconButton>
 						}
 					/>
-					<div className="menu-item" onClick={this.handleToggle}>
+					<div className="menu-item" onClick={this.viewEntries}>
 						<Calendar />
 						<p>Entries</p>
 					</div>
-					<div className="menu-item" onClick={this.handleToggle}>
+					<div className="menu-item" onClick={this.viewSettings}>
 						<Settings />
 						<p>Settings</p>
 					</div>
-					<div className="menu-item" onClick={this.handleToggle}>
+					<div className="menu-item" onClick={this.viewTutorial}>
 						<Info />
 						<p>Tutorial</p>
 					</div>
